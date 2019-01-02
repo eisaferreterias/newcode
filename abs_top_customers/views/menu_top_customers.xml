@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- create new menu 'Top Cusomers' in sales --> 
+    <menuitem id = "menu_top_customers"
+        name = "Top Customers"
+        parent = "sale.sale_menu_root"
+        action = "open_menu_top_customers"
+        groups = "sales_team.group_sale_manager"/>
+
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!-- tree view for display 'Customer' and 'Amount' -->
+    <record id="view_customers_tree" model="ir.ui.view">
+        <field name="name">top.customer.tree</field>
+        <field name="model">top.customer</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false" >
+                <field name="customers"/>
+                <field name="amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="open_view_customers_details_tree" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="res_model">top.customer</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_customers_tree" />
+    </record>
+
+</odoo>
