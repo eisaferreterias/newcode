@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--
+    |==============================================================================
+    |  Res Company Form Inherit
+    |==============================================================================
+    |
+    | Extends base.view_company_form to add ability to customize themes
+    |
+    -->
+    <record id="res_company_form_theme_inherit" model="ir.ui.view">
+        <field name="name">res.company.form.theme.inherit</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page" position="after">
+                <page string="Theme" name="Theme_Page">
+                    <group>
+                            <field name="can_change_theme" invisible="1"/>
+                            <div class="alert alert-warning" role="alert" attrs="{'invisible': [('can_change_theme', '=', True)]}">Make sure you have the
+                                blue_custom_branding.addon_path system parameter configured properly. If this warning appears here then it is not configured
+                                properly. Make sure to review the installation instructions provided in the app store for this module.
+                            </div>
+                        </group>
+                        <group attrs="{'invisible': [('can_change_theme', '=', False)]}">
+                            <button string="Build Theme" name="build_theme" type="object" class="oe_highlight"/>
+                        </group>
+                    <group>
+                        <field name="override_home"/>
+                        <field string="Primary Color" name="theme_color_primary"/>
+                        <field string="Success Color" name="theme_color_success"/>
+                        <field string="Info Color" name="theme_color_info"/>
+                        <field string="Warning Color" name="theme_color_warning"/>
+                        <field string="Danger Color" name="theme_color_danger"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_ir_config_form_inherit" model="ir.ui.view">
+        <field name="name">view.ir.config.form.inherit</field>
+        <field name="model">ir.config_parameter</field>
+        <field name="inherit_id" ref="base.view_ir_config_form"/>
+        <field name="arch" type="xml">
+            <sheet position="inside">
+                <field name="show_customer_branding_help" invisible="1"/>
+                <div class="alert alert-info" role="alert" attrs="{'invisible': [('show_customer_branding_help', '=', False)]}">
+                    When setting up the blue_custom_branding.addon_path you will want to define the absolute path to the blue_custom_branding folder on your
+                    server. This is just used so that we can write stylesheets to the system on theme changes.
+                    <br/>
+                    <br/>
+                    Also make sure that the path does not end with a trailing slash. Here are some examples of what a couple of valid paths would look like:
+                    <br/>
+                    <br/>
+                    <ul>
+                        <li>/odoo/custom/addons/blue_custom_branding</li>
+                        <li>/opt/odoo/vendor/addons/bluestingray/blue_custom_branding</li>
+                    </ul>
+                </div>
+            </sheet>
+        </field>
+    </record>
+</odoo>

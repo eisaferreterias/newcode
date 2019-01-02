@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="assets_backend" name="custom bar assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/blue_custom_branding/static/src/less/bootswatch.less" type="text/less" />
+            <link rel="stylesheet" href="/blue_custom_branding/static/src/less/variables.less" type="text/less" />
+            <script type="text/javascript" src="/blue_custom_branding/static/src/js/init.js"/>
+        </xpath>
+    </template>
+
+    <template id="less_variables">
+@brand-primary:         #<t t-esc="primary"/>;
+@brand-success:         #<t t-esc="success"/>;
+@brand-info:            #<t t-esc="info"/>;
+@brand-warning:         #<t t-esc="warning"/>;
+@brand-danger:          #<t t-esc="danger"/>;
+
+@navbar-default-bg:           @brand-primary;  // @brand-primary
+@navbar-inverse-bg:           @brand-info;     // @brand-info
+@label-primary-bg:            @brand-primary;  // @brand-primary
+    </template>
+
+</odoo>
