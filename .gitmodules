@@ -1,0 +1,4 @@
+[submodule "eisaferreterias/newcode"]
+	path = eisaferreterias/newcode
+	url = git@github.com:eisaferreterias/newcode.git
+	branch = spotlight
