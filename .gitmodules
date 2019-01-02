@@ -2,3 +2,8 @@
 	path = eisaferreterias/newcode
 	url = git@github.com:eisaferreterias/newcode.git
 	branch = spotlight
+
+[submodule "eisaferreterias/testing01"]
+	path = eisaferreterias/testing01
+	url = git@github.com:eisaferreterias/newcode.git
+	branch = master
