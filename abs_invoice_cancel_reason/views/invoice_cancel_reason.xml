@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="view_reason_new_tree" model="ir.ui.view">
+		<field name="name">invoice.cancel.reason.tree</field>
+		<field name="model">invoice.cancel.reason</field>
+		<field name="arch" type="xml">
+			<tree string="Invoice Cancellation Reason">
+				<field name="name"/>		
+			</tree>
+		</field>
+	</record>
+
+	<record id="view_reason_new_form" model="ir.ui.view">
+		<field name="name">invoice.cancel.reason.form</field>
+		<field name="model">invoice.cancel.reason</field>
+		<field name="arch" type="xml">
+			<form string="Invoice Cancellation Reason">
+                <sheet>
+				    <group>						
+				        <field name="name"/>
+				    </group>
+                </sheet>	
+			</form>
+		</field>
+	</record>
+
+	<record id="open_view_reason_new_tree" model="ir.actions.act_window">
+		<field name="name">Invoice Cancel Reason</field>
+		<field name="res_model">invoice.cancel.reason</field>
+		<field name="view_type">form</field>
+		<field name="view_model">tree,form</field>
+		<field name="view_id" ref="view_reason_new_tree"></field>
+	</record>
+
+	<menuitem
+		id="menu_invoice_cancelation_reasons"
+		name="Invoice Cancel Reason" 
+		parent="account.menu_finance_configuration"
+		action="open_view_reason_new_tree"/>
+</odoo>
+
