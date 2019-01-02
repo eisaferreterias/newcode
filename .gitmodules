@@ -7,3 +7,8 @@
 	path = eisaferreterias/testing01
 	url = git@github.com:eisaferreterias/newcode.git
 	branch = master
+
+[submodule "eisaferreterias/eisa"]
+	path = eisaferreterias/eisa
+	url = git@github.com:eisaferreterias/eisa.git
+	branch = master
